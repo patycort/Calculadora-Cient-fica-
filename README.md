@@ -32,8 +32,8 @@ El siguiente programa resuelve diferentes tipos de  operaciones aritméticas, ge
     d. Operaciones algebraicas y vectores.
     
     Creado por:
-    Patricia Mercedes Cortés García
-    Manuel Alejandro Gutiérrez León
+    Patricia Mercedes Cortés García  @patycort
+    Manuel Alejandro Gutiérrez León  @magl76
     
     Profesor
     @ElMarioberto
