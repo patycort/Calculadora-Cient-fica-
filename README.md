@@ -31,5 +31,10 @@ El siguiente programa resuelve diferentes tipos de  operaciones aritméticas, ge
     c. Operaciones matriciales.
     d. Operaciones algebraicas y vectores.
     
+    Creado por:
+    Patricia Mercedes Cortés García
+    Manuel Alejandro Gutiérrez León
+    
     Profesor
     @ElMarioberto
+    @MarSH-Up
