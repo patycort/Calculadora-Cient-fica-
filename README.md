@@ -35,6 +35,6 @@ El siguiente programa resuelve diferentes tipos de  operaciones aritméticas, ge
     Patricia Mercedes Cortés García  @patycort
     Manuel Alejandro Gutiérrez León  @magl76
     
-    Profesor
-    @ElMarioberto
+    Profesor:
     @MarSH-Up
+    @ElMarioberto
