@@ -40,42 +40,43 @@ class aritmetica{                             //CLASE TATARATATARABUELA
     }
 };
 
-class geometrica : public aritmetica{         //CLASE TATARABUELA
+class geometrica : public aritmetica{ //CLASE TATARABUELA
 
-  private:
-    int ancho, largo, profundidad, radio;
+    private:
+    float ancho, largo, profundidad, radio;
+    
+    public:
+    geometrica(int x, int y, float arr[], float zan, float zla, float zp, float zra){
+    setDim(x); //Dim es un numero
+    setNum2(y); //Determinar potencia y colocar num en array
+    setNums(arr);
+    setAncho(zan);
+    setLargo(zla);
+    setProfundidad(zp);
+    setRadio(zra);
 
-  public:
-    geometrica(int x, int y, float arr[], int zan, int zla, int zp, int zra){
-      setDim(x);                           //Dim es un numero
-      setNum2(y);                          //Determinar potencia y colocar num en array
-      setNums(arr);
-      setAncho(zan);
-      setLargo(zla);
-      setProfundidad(zp);
-      setRadio(zra);
+}
 
-    }
-
-    void setProfundidad(int p);          //mutador
-    void setRadio(int ra);
-    void setAncho(int an);
-    void setLargo(int la);
-
-    int getProfundidad();                //acceso
-    int getRadio();
-    int getAncho();
-    int getLargo();
-
-    int volumenR();                      //operaciones para diferentes fig geometricas R REC, T TRIAN, CCIRC
-    int volumenT();
-    int volumenC();
-    int areaR();
-    int areaT();
-    int areaC();
-    int perimetroR();
-    int perimetroT();
-    int perimetroC();
+    void setProfundidad(float p); //mutador
+    void setRadio(float ra);
+    void setAncho(float an);
+    void setLargo(float la);
+    
+    
+    float getProfundidad(); //acceso
+    float getRadio();
+    float getAncho();
+    float getLargo();
+    
+    float volumenR(); //operaciones para diferentes fig geometricas R REC, T TRIAN, CCIRC
+    float volumenT();
+    float volumenC();
+    float areaR();
+    float areaT();
+    float areaC();
+    float perimetroR();
+    float perimetroT();
+    float perimetroC();
 
 };
 
@@ -84,7 +85,7 @@ class matricial {
   public:
 
     void m_llenarm(int dim1, int *M);
-   void m_imprimir(int dim1, int *M);
+    void m_imprimir(int dim1, int *M);
     void m_suma(int* ptr_m1, int* ptr_m2, int* ptr_op, int dim1);                        //operaciones matriciales
     void m_resta(int* ptr_m1, int* ptr_m2, int* ptr_op, int dim1);
     void m_multiplicacion(int* ptr_m1, int* ptr_m2, int* ptr_op, int dim1);
@@ -95,7 +96,7 @@ class algebraica_vector : public matricial{//CLASE ABUELA
 
     public:
     
-    void si_ecuaciones();                  //operacion algebraica_vector
+    void si_ecuaciones();                  //operacion algebraica
     void distancia_2p();                   //operaciones vectoriales
     void magnitud_vec();
     void sum_2vec();
@@ -105,7 +106,7 @@ class estadistica : public algebraica_vector{//CLASE MADRE
 
   public:
 
-    float e_moda(int num_d, int datos[0]);
+    float e_moda(int num_d, int datos[0]);   //operaciones estadisticas
     float e_prom(int num_d, int datos[0]);
     float e_mediana(int num_d, int datos[0]);
     void e_datos(int num_d, int datos[0]);
@@ -120,8 +121,7 @@ class calc_comp : public estadistica {
 
 };
 
-int main()
-{
+int main(){
     calc_comp tr;
 
   int num, choice=0;
@@ -275,7 +275,6 @@ void opArit(){
       default:
       break;
   }
-
 }
 
 void opGeo(){
@@ -428,7 +427,8 @@ void aritmetica :: setNum2(int b){                 //mutador num2
     num2=b;
 }
 
-void aritmetica :: setNums(float mat[]) {            //mutador nums[]
+void aritmetica :: setNums(float mat[]) {           
+    //mutador nums[]
     for(int i=0;i<dim;i++){
       nums[i]=mat[i];
       //cout<<mat[i]<<endl;
@@ -482,74 +482,78 @@ float aritmetica :: pote(){
 }
 //------------------------------------FUNCIONES GEOMETRICA--------------------------
 
-void geometrica :: setAncho(int an){                 //mutadores
-    ancho=an;
+//------------------------------------FUNCIONES GEOMETRICA--------------------------
+
+void geometrica :: setAncho(float an){ //mutadores
+ancho=an;
 }
 
-void geometrica :: setLargo(int la){
-    largo=la;
+void geometrica :: setLargo(float la){
+largo=la;
 }
 
-void geometrica :: setProfundidad(int p){
-    profundidad=p;
+void geometrica :: setProfundidad(float p){
+profundidad=p;
 }
 
-void geometrica :: setRadio(int ra){
-    radio=ra;
+void geometrica :: setRadio(float ra){
+radio=ra;
 }
 
-int geometrica :: getAncho(){                       //accesos
-  return ancho;
+float geometrica :: getAncho(){ //accesos
+return ancho;
 }
 
-int geometrica :: getLargo(){
-  return largo;
+float geometrica :: getLargo(){
+return largo;
 }
 
-int geometrica :: getProfundidad(){
-  return profundidad;
+float geometrica :: getProfundidad(){
+return profundidad;
 }
 
-int geometrica :: getRadio(){
-  return radio;
+float geometrica :: getRadio(){
+return radio;
 }
-//                                                  Operaciones
-int geometrica :: areaR(){
-  return ancho*largo;
-}
-
-int geometrica :: areaT(){
-  return ancho*largo/2;
+// Operaciones
+float geometrica :: areaR(){
+return ancho*largo;
 }
 
-int geometrica :: areaC(){
-  return 3.141516*pow(radio,2);
+float geometrica :: areaT(){
+return ancho*largo/2;
 }
 
-int geometrica :: volumenR(){
-  return ancho*largo*profundidad;
+float geometrica :: areaC(){
+return 3.141516*pow(radio,2);
 }
 
-int geometrica :: volumenT(){                   //PRISMA TRIANGULAR
-  return ancho*largo*profundidad/2;
+float geometrica :: volumenR(){
+return ancho*largo*profundidad;
 }
 
-int geometrica :: volumenC(){
-  return 3.141516*pow(radio,2)*profundidad;           //CILINDRO
+float geometrica :: volumenT(){ //PRISMA TRIANGULAR
+return ancho*largo*profundidad/2;
 }
 
-int geometrica :: perimetroR(){
-  return (ancho+largo)*2;
+float geometrica :: volumenC(){
+return 3.141516*pow(radio,2)*profundidad; //CILINDRO
 }
 
-int geometrica :: perimetroT(){               //perimetro de triangulo equilatero o isósceles
-  int lado_pitagoras;
-  lado_pitagoras=sqrt(pow(ancho/2,2)+pow(largo,2));
-  return ancho+2*lado_pitagoras;
+float geometrica :: perimetroR(){
+return (ancho+largo)*2;
 }
 
-int geometrica :: perimetroC(){
-  return 2*3.141516*radio;
+float geometrica :: perimetroT(){ //perimetro de triangulo equilatero o isósceles
+int lado_pitagoras;
+lado_pitagoras=sqrt(pow(ancho/2,2)+pow(largo,2));
+return ancho+2*lado_pitagoras;
+}
+
+
+
+float geometrica :: perimetroC(){
+return 2*3.141516*radio;
 }
 
 //------------------------FUNCIONES MATRICIAL------------------------------------------------
@@ -563,14 +567,6 @@ for (int i=0; i<dim1; i++) //columnas
 			cin >> *(M + i * dim1 + j);//apuntadores para rellenar
 		}
 	}
-}
-
-void matricial :: m_imprimir (int dim1, int *M){
-	for (int i=0; i<dim1; i++) {
-		for (int j=0; j<dim1; j++) {
-			cout << *(M + j + (i * dim1)) << " ";//imprime matriz 
-		}
-	}    
 }
 
 void matricial :: m_suma (int* ptr_m1, int* ptr_m2, int* ptr_op, int dim1) {
@@ -639,9 +635,7 @@ void matricial :: m_transposicion_m1(int* ptr_op, int* ptr_m1, int dim1){
     
 }
  
-    
-//------------------------FUNCIONES VECTORISALES------------------------------------------------
-
+//------------------------FUNCIONES VECTORIALES------------------------------------------------
 
 void algebraica_vector :: si_ecuaciones (){
     int e_A, e_B, e_C;
@@ -722,7 +716,6 @@ void algebraica_vector :: distancia_2p(){
         cout<<"La distancia entre los puntos es: "<<D<<endl;
 }
  
- 
 //------------------------FUNCIONES ESTADISTICAS-----------------------------------
 
 float estadistica :: e_moda(int num_d, int datos[0]){
@@ -781,7 +774,7 @@ void estadistica :: e_datos(int num_d, int datos[0]){
 
 //------------------------FUNCIONES CALCULADORA------------------------------------------------
 
-  void calc_comp :: m_matrices(){
+void calc_comp :: m_matrices(){
       
     int dim1=3;
     int ptr_m1[dim1][dim1], ptr_m2[dim1][dim1], ptr_op[dim1][dim1];
@@ -799,51 +792,48 @@ void estadistica :: e_datos(int num_d, int datos[0]){
 
       case 1:
             
-    cout<<"Dame los valores de la matriz 1 de 3x3"<<endl;
-    m_llenarm(dim1, (int*)ptr_m1);
+        cout<<"Dame los valores de la matriz 1 de 3x3"<<endl;
+        m_llenarm(dim1, (int*)ptr_m1);
 
-    cout<<"Dame los valores de la matriz 2 de 3x3"<<endl;
-    m_llenarm(dim1, (int*)ptr_m2);
-    m_suma((int*) ptr_m1,(int*) ptr_m2, (int*) ptr_op, dim1);
+        cout<<"Dame los valores de la matriz 2 de 3x3"<<endl;
+        m_llenarm(dim1, (int*)ptr_m2);
+        
+        m_suma((int*) ptr_m1,(int*) ptr_m2, (int*) ptr_op, dim1);
 		break;
 		
-	    case 2:
+	  case 2:
 	        
-    cout<<"Dame los valores de la matriz 1 de 3x3"<<endl;
-    m_llenarm(dim1, (int*)ptr_m1);
+        cout<<"Dame los valores de la matriz 1 de 3x3"<<endl;
+        m_llenarm(dim1, (int*)ptr_m1);
 
-    cout<<"Dame los valores de la matriz 2 de 3x3"<<endl;
-    m_llenarm(dim1, (int*)ptr_m2);
-			m_resta((int*) ptr_m1, (int*) ptr_m2, (int*) ptr_op, dim1);
-			cout<<endl;
-			break;
+        cout<<"Dame los valores de la matriz 2 de 3x3"<<endl;
+        m_llenarm(dim1, (int*)ptr_m2);
+		
+		m_resta((int*) ptr_m1, (int*) ptr_m2, (int*) ptr_op, dim1);
+		break;
 			
-		case 3:
+	  case 3:
 		    
-    cout<<"Dame los valores de la matriz  de 3x3"<<endl;
-    m_llenarm(dim1, (int*)ptr_m1);
+        cout<<"Dame los valores de la matriz  de 3x3"<<endl;
+        m_llenarm(dim1, (int*)ptr_m1);
     
-    cout<<"Dame los valores de la matriz 2 de 3x3"<<endl;
-    m_llenarm(dim1, (int*)ptr_m2);
+        cout<<"Dame los valores de la matriz 2 de 3x3"<<endl;
+        m_llenarm(dim1, (int*)ptr_m2);
 
-			m_multiplicacion((int*) ptr_m1,(int*) ptr_m2,(int*) ptr_op, dim1);
-			cout<<endl;
-
-			break;
+		m_multiplicacion((int*) ptr_m1,(int*) ptr_m2,(int*) ptr_op, dim1);
+		break;
 			
-		case 4:
+      case 4:
 		    
-    cout<<"Dame los valores de la matriz de 3x3"<<endl;
-    m_llenarm(dim1, (int*)ptr_m1);
+        cout<<"Dame los valores de la matriz de 3x3"<<endl;
+        m_llenarm(dim1, (int*)ptr_m1);
 
-			m_transposicion_m1((int*) ptr_op, (int*) ptr_m1, dim1);
-			cout<<endl;
-		    break;
+		m_transposicion_m1((int*) ptr_op, (int*) ptr_m1, dim1);
+		break;
 		    
 		default:
 		break;
     }
-
   }
   
 void calc_comp :: algebraica_vector(){
@@ -880,7 +870,7 @@ void calc_comp :: algebraica_vector(){
     }       
   }
   
-  void calc_comp ::estadisticas(){
+void calc_comp ::estadisticas(){
     
     int opcion ;
     cout<<"Elige la operacion estadistica"<<endl;
@@ -911,7 +901,5 @@ void calc_comp :: algebraica_vector(){
         break;
         
     }
-    
-
+   
   }
-
